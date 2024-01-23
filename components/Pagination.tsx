@@ -29,7 +29,7 @@ const Pagination = ({ params }: { params: PaginationProps }) => {
   const totalDevices = filteredDevices.length;
 
   return (
-    <div className="w-full rounded-bl-md rounded-br-md bg-neutral-200 px-[20px] py-[12px]">
+    <div className="w-full flex items-center justify-between rounded-bl-md rounded-br-md bg-neutral-200 px-[20px] py-[12px]">
       <span className="text-sm font-normal text-neutral-700">
         Showing {devicesInCurrentPage} of {totalDevices} devices
       </span>
@@ -41,7 +41,7 @@ const Pagination = ({ params }: { params: PaginationProps }) => {
               onClick: (event: React.MouseEvent<HTMLButtonElement>) =>
                 onClick(Number(event.currentTarget.textContent)),
               text: `${index + 1}`,
-              textClassInfo: '',
+              textClassInfo: 'text-sm font-medium',
               buttonClassInfo: `mx-1 rounded-md px-2 py-1 ${
                 currentPage === index + 1
                   ? 'bg-primary-300 text-neutral-100'
