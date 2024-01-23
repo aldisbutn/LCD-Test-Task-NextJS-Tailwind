@@ -17,17 +17,13 @@ const NavigationTitle = () => {
   };
 
   return (
-    <div className="flex flex-col items-center gap-[12px] bg-neutral-800 px-[135px] py-[20px]">
-      <div className="w-full max-w-[1170px]">
-        <div className="flex gap-[8px]">
-          <h1 className="text-sm font-medium text-neutral-500">
-            Home
-          </h1>
-          <h1 className="text-sm font-medium text-neutral-500 opacity-20">
-            /
-          </h1>
+    <div className="flex flex-col items-center gap-3 bg-neutral-800 px-33.75 py-5">
+      <div className="w-full max-w-292.5">
+        <div className="flex gap-2">
+          <h1 className="text-sm font-medium text-neutral-500">Home</h1>
+          <h1 className="text-sm font-medium text-neutral-500 opacity-20">/</h1>
         </div>
-        <h1 className="text-[21px] font-medium text-neutral-100">
+        <h1 className="text-xl font-medium text-neutral-100">
           {getPathName(path)}
         </h1>
       </div>

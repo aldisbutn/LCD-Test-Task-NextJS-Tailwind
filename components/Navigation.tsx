@@ -16,31 +16,25 @@ const Navigation = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex w-full items-center justify-center border-b border-zinc-200 border-opacity-10 bg-neutral-800 px-[20px] py-[16px]">
-      <div className="flex w-full max-w-[1170px] items-center">
-        <div className="pr-[52px]">
+    <nav className="flex w-full items-center justify-center border-b border-zinc-200 border-opacity-10 bg-neutral-800 px-5 py-4">
+      <div className="flex w-full max-w-292.5 items-center">
+        <div className="pr-14">
           <Image src="/Logotype.svg" width={66} height={40} alt="logo" />
         </div>
-        <div className="flex items-center gap-[32px] ">
+        <div className="flex items-center gap-8 ">
           {links.map((link) => {
-            const activePath = pathname.startsWith(`/home/${link.path}`);
+            const activePath = pathname!.startsWith(`/home/${link.path}`);
             return (
               <NavigationLink
                 key={link.name}
-                params={{
-                  name: link.name,
-                  path: link.path,
-                  isActive: activePath,
-                }}
+                name={link.name}
+                path={link.path}
+                isActive={activePath}
               />
             );
           })}
         </div>
-        <UserMenu
-          params={{
-            user: 'Roberts',
-          }}
-        />
+        <UserMenu user="Roberts" />
       </div>
     </nav>
   );

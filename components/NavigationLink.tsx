@@ -7,11 +7,11 @@ type NavigationLinkProps = {
   isActive: boolean;
 };
 
-const NavigationLink = ({ params }: { params: NavigationLinkProps }) => {
-  const { name, path, isActive } = params;
+const NavigationLink = (props: NavigationLinkProps) => {
+  const { name, path, isActive } = props;
   return (
     <Link
-      className={`flex gap-[8px] ${isActive ? 'text-neutral-100' : 'text-neutral-500'}`}
+      className={`flex gap-2 ${isActive ? 'text-neutral-100' : 'text-neutral-500'}`}
       href={`/home/${path}`}
     >
       <Image

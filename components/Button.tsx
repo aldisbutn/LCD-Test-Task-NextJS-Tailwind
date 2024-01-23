@@ -1,27 +1,53 @@
 type ButtonProps = {
-  onClick?:
-    | (() => void)
-    | ((event: React.MouseEvent<HTMLButtonElement>) => void);
-  text: string;
-  textClassInfo: string;
-  buttonClassInfo: string;
-  secondaryTextWrapperClassInfo?: string;
-  secondaryTextClassInfo?: string;
-  secondaryText?: string;
+  buttonText: string;
+  click?: () => void;
+  variant: 'primary' | 'secondary' | 'info';
+  number?: number;
+  size?: 'small' | 'medium' | 'large';
 };
 
-const Button = ({ params }: { params: ButtonProps }) => {
-  const { onClick, text, textClassInfo, buttonClassInfo, secondaryTextWrapperClassInfo, secondaryTextClassInfo, secondaryText } = params;
-  return (
-    <button className={buttonClassInfo} onClick={onClick}>
-      <span className={textClassInfo}>{text}</span>
+const Button = (props: ButtonProps) => {
+  const { buttonText, click, variant, number, size } = props;
 
-      {/* Optional - used for displaying online/offline numbers */}
-      <div className={secondaryTextWrapperClassInfo}>
-        <span className={secondaryTextClassInfo}>
-          {secondaryText}
-        </span>
-      </div>
+  const getButtonStyles = () => {
+    if (variant === 'primary') {
+      return 'buttonPrimary';
+    } else if (variant === 'secondary') {
+      return 'buttonSecondary';
+    } else if (variant === 'info') {
+      return 'buttonInfo';
+    }
+  };
+
+  const getNumberStyles = () => {
+    if (variant === 'primary') {
+      return 'buttonNumberPrimary';
+    } else if (variant === 'secondary') {
+      return 'buttonNumberSecondary';
+    }
+  };
+
+  const getButtonSize = () => {
+    if (size === 'small') {
+      return 'buttonSmall';
+    } else if (size === 'medium') {
+      return 'buttonMedium';
+    } else if (size === 'large') {
+      return 'buttonLarge';
+    }
+  };
+
+  return (
+    <button
+      className={`button ${getButtonStyles()} ${getButtonSize()}`}
+      onClick={click}
+    >
+      {buttonText}
+      {number ? (
+        <div className={`buttonNumber ${getNumberStyles()}`}>{number}</div>
+      ) : (
+        ''
+      )}
     </button>
   );
 };
