@@ -1,11 +1,13 @@
 import BackgroundElement from '@/components/BackgroundElement';
 import ContentContainer from '@/components/ContentContainer';
 import useGetDevice from '@/utils/useGetDevice';
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: `Devices | TMEDIA`,
-};
+export const generateMetadata = async ({params}: {params: {id: number}}) => {
+  const device = await useGetDevice(params.id);
+  return {
+    title: `${device.name} | LCD`,
+  };
+}
 
 const page = async ({ params }: { params: { id: number } }) => {
   const device = await useGetDevice(params.id);

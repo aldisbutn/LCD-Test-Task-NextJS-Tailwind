@@ -3,7 +3,7 @@ import ContentContainer from '@/components/ContentContainer';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Apartments | TMEDIA',
+  title: 'Apartments | LCD',
 };
 
 const page = () => {

@@ -5,7 +5,7 @@ import BackgroundElement from '@/components/BackgroundElement';
 import ContentContainer from '@/components/ContentContainer';
 
 export const metadata: Metadata = {
-  title: 'Devices | TMEDIA',
+  title: 'Devices | LCD',
 };
 
 export type Device = {
