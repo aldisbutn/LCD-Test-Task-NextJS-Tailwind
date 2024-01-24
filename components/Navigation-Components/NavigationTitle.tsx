@@ -9,6 +9,10 @@ const NavigationTitle = () => {
   const getPathName = (path: string) => {
     const split = path.split('/').pop();
     if (split) {
+      const isNumber = /^\d+$/.test(split);
+      if (isNumber) {
+        return `Device #${split}`;
+      }
       const formatted = split
         .replace(/_/g, ' ')
         .replace(/(?:^|\s)\S/g, (char) => char.toUpperCase());
