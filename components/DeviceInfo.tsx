@@ -12,10 +12,11 @@ type DeviceInfoProps = {
 
 const DeviceInfo = (props: DeviceInfoProps) => {
   const { device } = props;
-  const [isHovered, setIsHovered] = useState(false);
-  const [hoveredDeviceId, setHoveredDeviceId] = useState(0);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [hoveredDeviceId, setHoveredDeviceId] = useState<number>(0);
   const isDeviceHovered = isHovered && device.ID === hoveredDeviceId;
   return (
+    // When device is hovered show shadow and buttons
     <div
       className={`flex items-center justify-between gap-4 rounded-md border ${isDeviceHovered ? 'border-neutral-500' : 'border-neutral-400'} py-3 pl-5 pr-2 ${isDeviceHovered ? 'shadow' : ''}`}
       onMouseOver={() => {
