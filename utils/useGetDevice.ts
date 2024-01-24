@@ -1,7 +1,7 @@
 const useGetDevice = async (ID: number) => {
   console.log('id', ID);
   try {
-    const response = await fetch(`http://localhost:3000/api/${ID}`, {
+    const response = await fetch(`http://localhost:3000/api/devices/${ID}`, {
       next: {
         tags: [`device-${ID}`],
       },
