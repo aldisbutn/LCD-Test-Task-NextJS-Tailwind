@@ -19,14 +19,6 @@ const Button = (props: ButtonProps) => {
     }
   };
 
-  const getNumberStyles = () => {
-    if (variant === 'primary') {
-      return 'buttonNumberPrimary';
-    } else if (variant === 'secondary') {
-      return 'buttonNumberSecondary';
-    }
-  };
-
   const getButtonSize = () => {
     if (size === 'small') {
       return 'buttonSmall';
@@ -34,6 +26,14 @@ const Button = (props: ButtonProps) => {
       return 'buttonMedium';
     } else if (size === 'large') {
       return 'buttonLarge';
+    }
+  };
+
+  const getNumberStyles = () => {
+    if (variant === 'primary') {
+      return 'buttonNumberPrimary';
+    } else if (variant === 'secondary') {
+      return 'buttonNumberSecondary';
     }
   };
 
