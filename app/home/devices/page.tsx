@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import useGetDevices from '@/utils/useGetDevices';
-import ViewDevices from '@/components/ViewDevices';
+import ViewDevices from '@/components/Devices-Components/ViewDevices';
 import BackgroundElement from '@/components/BackgroundElement';
 import ContentContainer from '@/components/ContentContainer';
 

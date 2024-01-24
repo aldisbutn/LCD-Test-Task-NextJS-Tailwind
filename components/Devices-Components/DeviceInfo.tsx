@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import Button from './Button';
+import Button from '../Button';
 import { useState } from 'react';
 import Image from 'next/image';
 import { Device } from '@/app/home/devices/page';

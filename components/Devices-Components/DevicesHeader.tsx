@@ -1,13 +1,14 @@
-import Button from './Button';
+import Button from '../Button';
 import Image from 'next/image';
+import { DisplayStatus } from './ViewDevices';
 
 type DevicesHeaderProps = {
   handleSearchInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onlineCount: number;
   offlineCount: number;
   searchQuery: string;
-  activeButton: boolean;
-  click: (button: boolean) => void;
+  devicesToDisplay: string;
+  click: (status: DisplayStatus) => void;
 };
 
 const DevicesHeader = (props: DevicesHeaderProps) => {
@@ -16,7 +17,7 @@ const DevicesHeader = (props: DevicesHeaderProps) => {
     onlineCount,
     offlineCount,
     searchQuery,
-    activeButton,
+    devicesToDisplay,
     click,
   } = props;
   return (
@@ -24,15 +25,15 @@ const DevicesHeader = (props: DevicesHeaderProps) => {
       <div className="flex gap-1">
         <Button
           buttonText={'Online'}
-          click={() => click(true)}
-          variant={`${activeButton ? 'primary' : 'secondary'}`}
+          click={() => click('online')}
+          variant={`${devicesToDisplay === 'online' ? 'primary' : 'secondary'}`}
           number={onlineCount}
         />
 
         <Button
-          click={() => click(false)}
+          click={() => click('offline')}
           buttonText={'Offline'}
-          variant={`${!activeButton ? 'primary' : 'secondary'}`}
+          variant={`${devicesToDisplay === 'offline' ? 'primary' : 'secondary'}`}
           number={offlineCount}
         />
       </div>

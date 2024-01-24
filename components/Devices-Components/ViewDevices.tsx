@@ -9,8 +9,10 @@ import getOnlineDevicesCount from '@/utils/getOnlineDevicesCount';
 import getOfflineDevicesCount from '@/utils/getOfflineDevicesCount';
 import filterDevices from '@/utils/filterDevices';
 
+export type DisplayStatus = 'all' | 'online' | 'offline';
+
 const ViewDevices = ({ devices }: { devices: Device[] }) => {
-  const [isOnline, setIsOnline] = useState<boolean>(true);
+  const [devicesToDisplay, setDevicesToDisplay] = useState<DisplayStatus>('all');
 
   const [onlineCount, offlineCount] = useMemo(() => {
     const onlineDevicesCount = getOnlineDevicesCount(devices);
@@ -22,9 +24,9 @@ const ViewDevices = ({ devices }: { devices: Device[] }) => {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const pageSize = 10;
-  
+
   const startIndex = (currentPage - 1) * pageSize;
-  const filteredDevices = filterDevices(devices, searchQuery, isOnline);
+  const filteredDevices = filterDevices(devices, searchQuery, devicesToDisplay);
   const endIndex = Math.min(startIndex + pageSize, filteredDevices.length);
   const displayedDevices = filteredDevices.slice(startIndex, endIndex);
 
@@ -33,8 +35,12 @@ const ViewDevices = ({ devices }: { devices: Device[] }) => {
     setSearchQuery(query);
   };
 
-  const handleButtonClick = (button: boolean) => {
-    setIsOnline(button);
+  const handleButtonClick = (status: DisplayStatus) => {
+    if (devicesToDisplay === status) {
+      setDevicesToDisplay('all');
+      return;
+    }
+    setDevicesToDisplay(status);
     setCurrentPage(1);
   };
 
@@ -49,7 +55,7 @@ const ViewDevices = ({ devices }: { devices: Device[] }) => {
         onlineCount={onlineCount}
         offlineCount={offlineCount}
         searchQuery={searchQuery}
-        activeButton={isOnline}
+        devicesToDisplay={devicesToDisplay}
         click={handleButtonClick}
       />
       <div className="flex flex-col gap-1 px-5 pb-5 ">

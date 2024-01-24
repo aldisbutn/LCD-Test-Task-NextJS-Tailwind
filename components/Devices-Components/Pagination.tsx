@@ -1,5 +1,5 @@
 import { Device } from '@/app/home/devices/page';
-import Button from './Button';
+import Button from '../Button';
 
 type PaginationProps = {
   filteredDevices: Device[];
