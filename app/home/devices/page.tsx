@@ -17,7 +17,7 @@ export type Device = {
   conStat: string;
 };
 
-const page = async () => {
+const Devices = async () => {
   const devices = await useGetDevices();
   return (
     <main className="relative flex w-full items-center justify-center">
@@ -29,4 +29,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Devices;

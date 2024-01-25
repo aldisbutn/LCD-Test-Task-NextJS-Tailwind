@@ -6,15 +6,13 @@ export const metadata: Metadata = {
   title: 'Apartments | LCD',
 };
 
-const page = () => {
-  return (
-    <main className="relative flex w-full items-center justify-center">
-      <BackgroundElement />
-      <ContentContainer>
-        <h1 className="px-20 py-20 text-xl">Apartments Page</h1>
-      </ContentContainer>
-    </main>
-  );
-};
+const Apartments = () => (
+  <main className="relative flex w-full items-center justify-center">
+    <BackgroundElement />
+    <ContentContainer>
+      <h1 className="px-20 py-20 text-xl">Apartments Page</h1>
+    </ContentContainer>
+  </main>
+);
 
-export default page;
+export default Apartments;

@@ -1,5 +1,4 @@
 import BackgroundElement from '@/components/BackgroundElement';
-import Button from '@/components/Button';
 import ContentContainer from '@/components/ContentContainer';
 import useGetDevice from '@/utils/useGetDevice';
 
@@ -14,7 +13,7 @@ export const generateMetadata = async ({
   };
 };
 
-const page = async ({ params }: { params: { id: number } }) => {
+const Device = async ({ params }: { params: { id: number } }) => {
   const { name } = await useGetDevice(params.id);
 
   return (
@@ -31,4 +30,4 @@ const page = async ({ params }: { params: { id: number } }) => {
   );
 };
 
-export default page;
+export default Device;
