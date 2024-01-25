@@ -24,7 +24,6 @@ const ViewDevices = ({ devices }: { devices: Device[] }) => {
 
   const [currentPage, setCurrentPage] = useState<number>(1);
   const pageSize = 10;
-
   const startIndex = (currentPage - 1) * pageSize;
   const filteredDevices = filterDevices(devices, searchQuery, devicesToDisplay);
   const endIndex = Math.min(startIndex + pageSize, filteredDevices.length);
