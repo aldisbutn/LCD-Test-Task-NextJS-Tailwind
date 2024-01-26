@@ -13,7 +13,7 @@ npm i
 Create and seed the database
 
 ```bash
-node connect.js
+node connect.ts
 ```
 
 If you are using VS Code you can use the SQLite extension to view the database
